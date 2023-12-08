@@ -1,0 +1,82 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      setFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// defaultFieldValues
+// (
+//     volScalarFieldValue alpha.water 0
+// );
+
+// regions
+// (
+//     boxToCell
+//     {
+//         box (0.1 0.46 -1) (0.14 0.5 1);
+//         fieldValues
+//         (
+//             volScalarFieldValue alpha.water 1
+//         );
+//     }
+// );
+
+defaultFieldValues
+(
+    volScalarFieldValue alpha.water 0
+);
+
+regions
+(
+    cylinderToCell
+    {
+        p1      (0.1 0.46 -1);   // Base point of the cylinder
+        p2      (0.1 0.46 1);    // Point along the axis, defining cylinder height
+        radius  0.025;            // Radius of the cylinder
+
+        fieldValues
+        (
+            volScalarFieldValue alpha.water 1
+        );
+    }
+    cylinderToCell
+    {
+        p1      (0.304 0.5 -1);   // Base point of the cylinder
+        p2      (0.304 0.5 1);    // Point along the axis, defining cylinder height
+        radius  0.04;            // Radius of the cylinder
+
+        fieldValues
+        (
+            volScalarFieldValue alpha.water 1
+        );
+    }
+    cylinderToCell
+    {
+        p1      (0.45 0.35 -1);   // Base point of the cylinder
+        p2      (0.45 0.35 1);    // Point along the axis, defining cylinder height
+        radius  0.035;            // Radius of the cylinder
+
+        fieldValues
+        (
+            volScalarFieldValue alpha.water 1
+        );
+    }
+);
+
+
+
+
+
+
+// ************************************************************************* //
